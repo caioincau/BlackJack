@@ -21,5 +21,12 @@ public class BaralhoTest {
 			assertTrue(baralho.getCarta().jaSaiu());
 		}
 	}
+	@Test
+	public void deveEmbaralharAsCartas() throws Exception {
+		Carta carta = baralho.getCartas().get(0);
+		baralho.embaralha();
+		Carta carta2 = baralho.getCartas().get(0);
+		assertFalse(carta.getNome().equalsIgnoreCase(carta2.getNome()) || carta.getNaipe().equalsIgnoreCase(carta2.getNaipe()));
+	}
 
 }
