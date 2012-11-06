@@ -53,7 +53,6 @@ public class MainPanel {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		final ProcessadorDeAcoes processador = new ProcessadorDeAcoes();
 		final JLabel lblSeusPontos = new JLabel("Seus Pontos: \n "+ processador.getPlayer().valorTotal());
@@ -78,6 +77,13 @@ public class MainPanel {
 		});
 		
 		
+		
+		btnNovoJogo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnContinuar.addActionListener(new ActionListener() {
 			
 			@Override
