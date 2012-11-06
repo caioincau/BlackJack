@@ -14,14 +14,15 @@ public class Mao {
 	}
 	private ArrayList<Carta> cartas;
 	
-	public void mostraMao(){
-		
+	public String mostraMao(){
+		String cartas = "<html>" ;
 		int valor = 0;
 		for (Carta carta : this.cartas) {
-			System.out.println(carta);
+			cartas += carta.getNome() + " de "+carta.getNaipe()+ "<br>";
 			valor+= carta.getValor();
 		}
-		System.out.println("Voce ja tem : "+ valor);
+		cartas+= "</html>";
+		return cartas;
 	}
 	
 	public int valorTotal(){

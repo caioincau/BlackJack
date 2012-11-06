@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.com.caio.blackjack.util.ProcessadorDeAcoes;
+import javax.swing.SwingConstants;
 
 public class MainPanel {
 
@@ -65,6 +66,8 @@ public class MainPanel {
 		JButton btnContinuar = new JButton("Mais uma carta");
 		
 		JButton btnParar = new JButton("Parar");
+		final JLabel suasCartas = new JLabel(processador.getPlayer().mostraMao());
+		suasCartas.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		btnParar.addActionListener(new ActionListener() {
 			
@@ -81,8 +84,10 @@ public class MainPanel {
 			public void actionPerformed(ActionEvent e) {
 				processador.processaContinuar();
 				lblSeusPontos.setText("Seus Pontos: \n "+ processador.getPlayer().valorTotal());
+				suasCartas.setText(processador.getPlayer().mostraMao());
 			}
 		});
+		
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -94,23 +99,28 @@ public class MainPanel {
 							.addComponent(btnParar, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
 							.addGap(54)
 							.addComponent(btnContinuar))
+						.addComponent(btnNovoJogo, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(153)
+							.addComponent(lblPontosDoAdversario))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(164)
 							.addComponent(lblSeusPontos))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(153)
-							.addComponent(lblPontosDoAdversario))
-						.addComponent(btnNovoJogo, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(73, Short.MAX_VALUE))
+							.addGap(22)
+							.addComponent(suasCartas, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(22, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(btnNovoJogo, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-					.addGap(56)
+					.addGap(10)
 					.addComponent(lblPontosDoAdversario)
-					.addPreferredGap(ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(suasCartas, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblSeusPontos)
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
