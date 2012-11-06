@@ -119,5 +119,6 @@ public class MainPanel {
 					.addGap(21))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
