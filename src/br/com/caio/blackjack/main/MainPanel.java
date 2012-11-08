@@ -55,7 +55,7 @@ public class MainPanel {
 		frame.setBounds(100, 100, 450, 300);
 		
 		final ProcessadorDeAcoes processador = new ProcessadorDeAcoes();
-		final JLabel lblSeusPontos = new JLabel("Seus Pontos: \n "+ processador.getPlayer().valorTotal());
+		final JLabel lblSeusPontos = new JLabel("Seus Pontos: \n "+ processador.getPlayer().getValorTotal());
 		
 		JLabel lblPontosDoAdversario = new JLabel("Pontos do adversario: ");
 		
@@ -72,6 +72,7 @@ public class MainPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				processador.processaParar();
 				
 			}
 		});
@@ -89,7 +90,7 @@ public class MainPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				processador.processaContinuar();
-				lblSeusPontos.setText("Seus Pontos: \n "+ processador.getPlayer().valorTotal());
+				lblSeusPontos.setText("Seus Pontos: \n "+ processador.getPlayer().getValorTotal());
 				suasCartas.setText(processador.getPlayer().mostraMao());
 			}
 		});

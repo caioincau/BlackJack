@@ -25,7 +25,7 @@ public class Mao {
 		return cartas;
 	}
 	
-	public int valorTotal(){
+	public int getValorTotal(){
 		int valor = 0;
 		for (Carta carta : this.cartas) {
 			valor+=carta.getValor();
