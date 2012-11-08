@@ -54,12 +54,14 @@ public class ProcessadorDeAcoes {
 	public void processaParar(){
 		computador.getCartas().add(baralho.getCarta());
 		computador.getCartas().add(baralho.getCarta());
+		while(processaJogadas()){
+			computador.getCartas().add(baralho.getCarta());
+		}
 	}
 	
 	
 	public boolean processaJogadas(){
-		if(computador.getValorTotal()<19 || computador.getValorTotal()<player.getValorTotal()){
-			computador.getCartas();
+		if((computador.getValorTotal()<19&&player.getValorTotal()<=21) || (computador.getValorTotal()<player.getValorTotal())&&player.getValorTotal()<=21){
 			return true;
 		}
 		else{
