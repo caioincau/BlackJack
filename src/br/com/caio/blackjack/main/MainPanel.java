@@ -57,7 +57,7 @@ public class MainPanel {
 		final ProcessadorDeAcoes processador = new ProcessadorDeAcoes();
 		final JLabel lblSeusPontos = new JLabel("Seus Pontos: \n "+ processador.getPlayer().getValorTotal());
 		
-		JLabel lblPontosDoAdversario = new JLabel("Pontos do adversario: ");
+		final JLabel lblPontosDoAdversario = new JLabel("Pontos do adversario: ");
 		
 		JButton btnNovoJogo = new JButton("Novo Jogo");
 		
@@ -73,7 +73,9 @@ public class MainPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				processador.processaParar();
-				
+				lblPontosDoAdversario.setText("Pontos do adversario: \n "+ processador.getComputador().getValorTotal());
+				suasCartas.setText(processador.getComputador().mostraMao());
+				JOptionPane.showMessageDialog(frame, processador.getWinner());
 			}
 		});
 		
