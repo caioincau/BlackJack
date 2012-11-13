@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import br.com.caio.blackjack.util.MontaBaralho;
 import br.com.caio.blackjack.util.ProcessadorDeAcoes;
 import javax.swing.SwingConstants;
 
@@ -85,6 +86,9 @@ public class MainPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String[] args = null;
+				MainPanel.main(args);
+				fechaFrame();
 			}
 		});
 		btnContinuar.addActionListener(new ActionListener() {
@@ -139,5 +143,8 @@ public class MainPanel {
 		);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void fechaFrame(){
+		this.frame.setVisible(false);
 	}
 }
